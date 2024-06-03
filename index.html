@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magic Card</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #2c2c2c;
+    }
+
+    .card {
+      --background: linear-gradient(to left, #f7ba2b 0%, #ea5358 100%);
+      width: 450px;
+      height: 650px;
+      padding: 10px;
+      border-radius: 1rem;
+      overflow: hidden;
+      background: var(--background);
+      position: relative;
+      z-index: 1;
+    }
+
+    .card::after {
+      position: absolute;
+      content: "";
+      top: 30px;
+      left: 0;
+      right: 0;
+      z-index: -1;
+      height: 100%;
+      width: 100%;
+      transform: scale(0.8);
+      filter: blur(25px);
+      background: var(--background);
+      transition: opacity .5s;
+    }
+
+    .card-info {
+      --color: #181818;
+      background: var(--color);
+      color: var(--color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      border-radius: .9rem;
+      position: relative;
+      text-align: center;
+      padding: 20px;
+      flex-direction: column;
+      box-sizing: border-box;
+      transition: color 1s;
+    }
+
+    .card .title {
+      font-weight: bold;
+      letter-spacing: .1em;
+      font-size: 1.5em;
+      margin-top: 20px;
+      line-height: 1.5;
+      opacity: 0;
+      transition: opacity 1s;
+    }
+
+    .logo {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .home-link {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.8);
+      transition: background-color 0.3s;
+      text-decoration: none;
+      color: black;
+      z-index: 2;
+    }
+
+    .home-link:hover {
+      background-color: rgba(255, 255, 255, 1);
+    }
+
+    /*Hover*/
+    .card:hover::after {
+      opacity: 0;
+    }
+
+    .card:hover .card-info {
+      color: #f7ba2b;
+    }
+
+    .card:hover .card-info .title {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <a class="home-link" href="https://creepyroot.github.io/CREEPYROOT" target="_blank">Home</a>
+    <div class="card-info">
+      <div class="logo">
+        <img src="logo.png" alt="Logo">
+      </div>
+      <p class="title">Stay tuned!<br>We will make this awesome in no time.<br>Experience the magic unfold<br>as we transform this<br>into something extraordinary!</p>
+    </div>
+  </div>
+</body>
+</html>
+
